@@ -3,9 +3,9 @@ using System.Diagnostics;
 
 namespace AlgorythmLab1;
 
-public class QuickSort : Sorter
+public class QuickSort : ISortable
 {
-    public static void Sort(int[] arr)
+    public void Sort(int[] arr)
     {
         int[] answ = SortArray(arr, 0, arr.Length-1);
     }
@@ -48,7 +48,7 @@ public class QuickSort : Sorter
         Stopwatch timer = new();
 
         timer.Start();
-        Sort(randomArray);
+        new QuickSort().Sort(randomArray);
         timer.Stop();
 
         return timer.ElapsedMilliseconds;

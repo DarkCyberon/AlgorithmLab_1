@@ -3,9 +3,9 @@ using System.Diagnostics;
 
 namespace AlgorythmLab1;
 
-public class BubbleSort : Sorter
+public class BubbleSort : ISortable
 {
-    public static void Sort(int[] arr)
+    public void Sort(int[] arr)
     {
         var n = arr.Length;
         for (int i = 0; i < n - 1; i++)
@@ -27,7 +27,7 @@ public class BubbleSort : Sorter
         Stopwatch timer = new();
 
         timer.Start();
-        Sort(randomArray);
+        new BubbleSort().Sort(randomArray);
         timer.Stop();
 
         return timer.ElapsedMilliseconds;

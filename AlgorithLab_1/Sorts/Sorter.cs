@@ -1,6 +1,6 @@
 namespace AlgorythmLab1;
 
-public abstract class Sorter
+interface ISortable
 {
-    public void Sort(int[] arr) {}
+    public void Sort(int[] arr);
 }
