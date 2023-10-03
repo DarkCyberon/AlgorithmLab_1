@@ -9,7 +9,7 @@ public class SieveEratosphenes
 
         for (var i = 0; i < numbers.Count; i++)
         {
-            for (var j = 2; j < n; j++)
+            for (var j = 2; j <= n / numbers[i]; j++)
             {
                 numbers.Remove(numbers[i] * j);
             }
