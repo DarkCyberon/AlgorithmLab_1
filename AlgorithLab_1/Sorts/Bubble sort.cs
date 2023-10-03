@@ -5,7 +5,7 @@ namespace AlgorythmLab1;
 
 public class BubbleSort : Sorter
 {
-    public static int[] Sort(int[] arr)
+    public static void Sort(int[] arr)
     {
         var n = arr.Length;
         for (int i = 0; i < n - 1; i++)
@@ -20,8 +20,6 @@ public class BubbleSort : Sorter
                 }
             }
         }
-
-        return arr;
     }
     public static long Timer(int variableCount)
     {
