@@ -3,8 +3,16 @@ using System.Diagnostics;
 
 namespace AlgorythmLab1;
 
-public class QuickSort : Sorter
+public class QuickSort : IExecutable
 {
+    public void Execute(int n)
+    {
+        int[] randomArray = Program.RandomArray(n);
+        Sort(randomArray);
+    }
+
+    public Func<double, double> GetComplexityFunction() => num => num * Math.Log2(num);
+    
     public static void Sort(int[] arr)
     {
         int[] answ = SortArray(arr, 0, arr.Length-1);
@@ -42,15 +50,9 @@ public class QuickSort : Sorter
             SortArray(array, i, rightIndex);
         return array;
     }
+    
     public static long Timer(int variableCount)
     {
-        int[] randomArray = Program.RandomArray(variableCount);
-        Stopwatch timer = new();
-
-        timer.Start();
-        Sort(randomArray);
-        timer.Stop();
-
-        return timer.ElapsedMilliseconds;
+        return TimeMesures.Timer(variableCount, new QuickSort());
     }
 }
