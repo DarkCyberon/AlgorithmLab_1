@@ -15,28 +15,6 @@ public class SieveEratosphenes : IExecutable
         }
     }
 
-    /* 
-    // Линейная реализация
-    static void SieveEratosthenes(int n)
-    {
-        int[] numbers = new int[n];
-        for(int i = 0; i < n; i++)
-        {
-            numbers[i] = i;
-        }
-
-        for (var i = 2; i < numbers.Length; i++)
-        {
-            if (numbers[i] != 0)
-            {
-                for (var j = 2; j < n / numbers[i]; j++)
-                {
-                    numbers[numbers[i] * j] = 0;
-                }
-            }
-        }
-    }*/
-
     public void Execute(int n)
     {
         SieveEratosthenes(n);

@@ -10,12 +10,12 @@ public class Drawer
     {
         Plot plot = new Plot();
         plot.Title(name.Replace(".Timer", "").Replace(".Pow", ""));
-        MethodInfo methodInfo = algType.GetMethod("GetComplexityFunction", Type.EmptyTypes); //определяется вызываемый метода и его входные параметры
-        object instance = Activator.CreateInstance(algType); // создаётся экземпляр класса
+        MethodInfo methodInfo = algType.GetMethod("GetComplexityFunction", Type.EmptyTypes);
+        object instance = Activator.CreateInstance(algType);
         Func<double, double> f = Fit.LinearCombinationFunc(
             dataX.GetRange(0, dataX.Count - 1).ToArray(),
             dataY.GetRange(0, dataY.Count - 1).ToArray(),
-            (System.Func<double, double>)methodInfo.Invoke(instance, null)); // вызывается определённый метод над созданным экземпляром и кастится в Фанк
+            (System.Func<double, double>)methodInfo.Invoke(instance, null));
 
         plot.XLabel("Размерность вектора");
         if (name == "ObviousPow.Pow" || name == "RecPow.Pow"
