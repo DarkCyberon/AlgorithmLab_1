@@ -109,15 +109,34 @@ namespace AlgorithLab_1
         
         public static double DoTheGornersMethod(int[] inputArray)
         {
-            return GornersStepInto(inputArray, 0);
+
+            if (inputArray.Length == 0) return 0;
+            double x = 1.5;
+            double result = inputArray[0];
+
+            for (int i = 1; i < inputArray.Length; i++)
+            {
+                result = result * x + inputArray[i];
+            }
+
+            return result;
         }
         
-        private static double GornersStepInto(int[] inputArray, int stepNumber)
+        private static double GornersStepInto(int[] inputArray)
         {
-            if (stepNumber < inputArray.Length)
-                return inputArray[stepNumber] + 1.5 * GornersStepInto(inputArray, stepNumber + 1);
-            return 1;
+            int stepNumber = inputArray.Length - 1;
+            double sum = 0;
+            while (stepNumber > 0) 
+            {
+                sum *= 1.5;
+                sum += inputArray[stepNumber];
+                stepNumber--;
+            }
+            return sum;
+
+
         }
+    
         
         public static long Timer(int variableCount)
         {
