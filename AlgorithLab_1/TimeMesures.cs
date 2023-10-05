@@ -49,10 +49,10 @@ namespace AlgorithLab_1
                 long avarageTime = timeNotes.Sum() / testsCount;
                 times[i/steps - 1] = $"{i} {avarageTime}";
             }
-            string path = $"{savePath}\\{name}measures.txt";
+            string path = $"{savePath}\\{name}measures.png";
             Drawer.Draw(stepList, doubleTimeNotes, name, path, ReflexGetAlgType(name));
-            File.WriteAllLines(path, times);
         }
+
         public static long Timer(int variableCount, IExecutable executable)
         {
             int[] randomArray = Program.RandomArray(variableCount);

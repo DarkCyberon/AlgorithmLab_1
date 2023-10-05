@@ -9,13 +9,20 @@ public class Drawer
     public static void Draw(List<double> dataX, List<double> dataY, string name, string pathPNG, Type algType)
     {
         Plot plot = new Plot();
-        plot.Title(name);
+        plot.Title(name.Replace(".Timer", ""));
         MethodInfo methodInfo = algType.GetMethod("GetComplexityFunction", Type.EmptyTypes); //определяется вызываемый метода и его входные параметры
         object instance = Activator.CreateInstance(algType); // создаётся экземпляр класса
         Func<double, double> f = Fit.LinearCombinationFunc(
             dataX.GetRange(0, dataX.Count - 1).ToArray(),
             dataY.GetRange(0, dataY.Count - 1).ToArray(),
             (System.Func<double, double>)methodInfo.Invoke(instance, null)); // вызывается определённый метод над созданным экземпляром и кастится в Фанк
+
+        plot.XLabel("Размерность вектора");
+        if (name == "ObviousPow.Timer" || name == "RecPow.Timer"
+            || name == "QuickPow.Timer" || name == "ClassicQuickPow.Timer")
+            plot.YLabel("Количество операций, ед.");
+        else
+            plot.YLabel("Время, мс");
 
         plot.Add.Scatter(dataX, dataY, Colors.Aqua);
         plot.Add.Scatter(dataX, dataX.Select(x => f(x)).ToArray(), Colors.Red);

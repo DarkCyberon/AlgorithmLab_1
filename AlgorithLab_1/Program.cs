@@ -6,7 +6,6 @@ namespace AlgorithLab_1
     class Program
     {
         public static string SavePath = "C:\\Users\\User\\Desktop";
-
         static void Main()
         {
             
@@ -28,6 +27,7 @@ namespace AlgorithLab_1
                 new MenuItem("ClassicQuickPow algorithm", "ClassicQuickPow.Timer"),
                 new MenuItem("MatrixMultiply algorithm", "MultiplyMatrix.Timer"),
                 new MenuItem("Li algorithm", "Li.Timer"),
+                new MenuItem("Sieve Eratosphenes", "SieveEratosphenes.Timer"),
                 new MenuItem($"Change save path (Current path: {SavePath})", "path"),
                 new MenuItem("Exit", "exit")
             };
