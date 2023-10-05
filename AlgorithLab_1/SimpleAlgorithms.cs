@@ -110,14 +110,14 @@ namespace AlgorithLab_1
         {
             return GornersStepInto(inputArray, 0);
         }
-        
+
         private static double GornersStepInto(int[] inputArray, int stepNumber)
         {
             if (stepNumber < inputArray.Length)
                 return inputArray[stepNumber] + 1.5 * GornersStepInto(inputArray, stepNumber + 1);
-            return 0;
+            return 1;
         }
-        
+
         public static long Timer(int variableCount)
         {
             return TimeMesures.Timer(variableCount, new GornersMethod());
