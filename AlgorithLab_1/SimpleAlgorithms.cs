@@ -121,23 +121,7 @@ namespace AlgorithLab_1
 
             return result;
         }
-        
-        private static double GornersStepInto(int[] inputArray)
-        {
-            int stepNumber = inputArray.Length - 1;
-            double sum = 0;
-            while (stepNumber > 0) 
-            {
-                sum *= 1.5;
-                sum += inputArray[stepNumber];
-                stepNumber--;
-            }
-            return sum;
 
-
-        }
-    
-        
         public static long Timer(int variableCount)
         {
             return TimeMaesures.Timer(variableCount, new GornersMethod());
